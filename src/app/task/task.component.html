@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-center">
+  <form [formGroup]="form" class="example-form" (ngSubmit)="submit(form.value)">
+    <h5>Save Contact</h5>
+    <mat-form-field class="example-full-width">
+      <mat-label>Contact Name</mat-label>
+      <input formControlName="name" matInput value="" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Contact No.</mat-label>
+      <input formControlName="number" matInput value="" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email ID</mat-label>
+      <input formControlName="email" matInput value="" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address</mat-label>
+      <input formControlName="address" matInput value="" />
+    </mat-form-field>
+    <button type="submit" class="btn btn-primary">
+      {{ infoId > 0 ? "Update" : "Create" }}
+    </button>
+  </form>
+</div>

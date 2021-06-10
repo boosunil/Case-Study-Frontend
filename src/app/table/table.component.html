@@ -1,0 +1,24 @@
+<h5 class="d-flex justify-content-center">Contact List</h5>
+<div class="d-flex justify-content-center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Contact Name</th>
+        <th scope="col">Contact No</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of contactList">
+        <td>{{ data.name }}</td>
+        <td>{{ data.number }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.address }}</td>
+        <td class="new" (click)="edit(data.id)">Edit</td>
+        <td class="new" (click)="delete(data.id)">Delete</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

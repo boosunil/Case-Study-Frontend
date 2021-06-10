@@ -1,0 +1,55 @@
+<h5 class="d-flex justify-content-center">
+  Choose an Excel Sheet to see the graph
+</h5>
+<a href="assets/task.xlsx" class="btn btn-primary mb-2 mr-2 float-right"
+  >Download Example Excel</a
+>
+<br />
+<div class="d-flex justify-content-center">
+  <form
+    [formGroup]="importDataForm"
+    (submit)="submit(importDataForm.value)"
+    id="validate-createEventForm"
+    novalidate
+  >
+    <input
+      type="file"
+      #dataFile
+      id="datafile"
+      (change)="fileUpload($event.target.files)"
+      formControlName="datafile"
+    />
+
+    <button type="submit" class="btn btn-primary mr-2 btn-sm">Submit</button>
+
+    <button type="button" class="btn btn-danger btn-sm" (click)="cancel()">
+      Cancel
+    </button>
+  </form>
+</div>
+<br />
+<div style="height: 300px; background-color: #ddd">
+  <div class="row" class="d-flex justify-content-center">
+    <div class="col-3">
+      <div id="chart">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [labels]="chartOptions.labels"
+          [responsive]="chartOptions.responsive"
+        ></apx-chart>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div id="chart_radial">
+        <apx-chart
+          [series]="chartOptions_radial.series"
+          [chart]="chartOptions_radial.chart"
+          [plotOptions]="chartOptions_radial.plotOptions"
+          [labels]="chartOptions_radial.labels"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>

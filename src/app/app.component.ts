@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: "app-root",
@@ -9,6 +9,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppComponent {
   constructor(
-    private spinner: NgxSpinnerService,
+    
   ) {}
 }

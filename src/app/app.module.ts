@@ -17,7 +17,7 @@ import { ExtendedInputComponent } from './extended-input/extended-input.componen
 import { HeaderComponent } from './header/header.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
-import { NgxSpinnerModule } from "ngx-spinner";
+
 
 
 @NgModule({
@@ -34,7 +34,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatFormFieldModule,
     MatInputModule,
     NgApexchartsModule,
-    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

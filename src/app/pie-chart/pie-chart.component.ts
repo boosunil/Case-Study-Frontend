@@ -10,7 +10,7 @@ import { ElementRef } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ApiserviceService } from '../apiservice.service';
-import { NgxSpinnerService } from "ngx-spinner";
+
 
 
 
@@ -48,7 +48,6 @@ export class PieChartComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     public apiService : ApiserviceService,
-    private spinner: NgxSpinnerService,
     
   ) {
     this.chartOptions = {
@@ -113,7 +112,6 @@ export class PieChartComponent implements OnInit {
   }
 
   getData(){
-    this.spinner.show()
     this.apiService.getUploadedData().subscribe(
       (resp) =>{
         if (resp['success']){
@@ -125,7 +123,6 @@ export class PieChartComponent implements OnInit {
               this.share.push(element.share)
             }
           });
-          this.spinner.hide()
         }
       },(error) =>{
         console.log(error)
@@ -148,7 +145,6 @@ export class PieChartComponent implements OnInit {
   }
 
   submit(data) {
-    this.spinner.show()
     if (this.importDataForm.valid) {
       //console.log("ON submit", data);
       const formValues = new FormData();
@@ -158,13 +154,10 @@ export class PieChartComponent implements OnInit {
         (res) => {
           this.router.navigate(['/Charts'])
           this.getData()
-          console.log(res)
-          this.spinner.hide()
           alert("Successfully Imported")
         },
         (error) => {
           //console.log("this.import_file: ", this.import_file) 
-          this.spinner.hide()
         }
       );
     }

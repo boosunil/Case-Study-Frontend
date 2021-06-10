@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
 import { ApiserviceService } from "../apiservice.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
-
-
 @Component({
   selector: "app-task",
   templateUrl: "./task.component.html",
@@ -22,7 +20,7 @@ export class TaskComponent implements OnInit {
     // private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
     private router: Router,
-    public apiService: ApiserviceService, 
+    public apiService: ApiserviceService,
   ) {}
 
   ngOnInit() {
@@ -49,7 +47,6 @@ export class TaskComponent implements OnInit {
       this.apiService.updateContact(val,this.infoId).subscribe(
         res =>{
           this.router.navigate(['/Contact-List'])
-          console.log(res)
         },
         error =>{
           console.log(error)

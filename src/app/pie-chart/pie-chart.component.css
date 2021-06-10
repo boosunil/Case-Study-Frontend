@@ -5,7 +5,17 @@
 }
 
 #chart_radial {
-  padding: 0;
+  /* padding: 0;
   max-width: 650px;
-  margin: 35px auto;
+  margin: 35px auto; */
+  width: 300px;
+  margin: 0 auto;
+}
+
+input,
+optgroup,
+select,
+textarea {
+  background-color: #ddd;
+  margin-left: 5px;
 }

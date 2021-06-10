@@ -1,3 +1,19 @@
+<div
+  *ngIf="alert"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  Uploaded Successfully
+  <button
+    (click)="closeAlert()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 <h5 class="d-flex justify-content-center">
   Choose an Excel Sheet to see the graph
 </h5>
@@ -7,6 +23,7 @@
 <br />
 <div class="d-flex justify-content-center">
   <form
+    #fileInput
     [formGroup]="importDataForm"
     (submit)="submit(importDataForm.value)"
     id="validate-createEventForm"
@@ -20,10 +37,16 @@
       formControlName="datafile"
     />
 
-    <button type="submit" class="btn btn-primary mr-2 btn-sm">Submit</button>
+    <button
+      type="submit"
+      class="btn btn-primary mr-2 btn-sm"
+      style="margin-left: 5px"
+    >
+      Submit
+    </button>
 
-    <button type="button" class="btn btn-danger btn-sm" (click)="cancel()">
-      Cancel
+    <button class="btn btn-danger btn-sm" (click)="clearSelection()">
+      Clear
     </button>
   </form>
 </div>

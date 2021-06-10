@@ -18,8 +18,6 @@ import { HeaderComponent } from './header/header.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 
-
-
 @NgModule({
   declarations: [AppComponent, TableComponent, TaskComponent, ExtendedInputComponent, HeaderComponent, PieChartComponent],
   imports: [

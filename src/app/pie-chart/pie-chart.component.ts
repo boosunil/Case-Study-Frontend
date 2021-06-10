@@ -39,10 +39,12 @@ export class PieChartComponent implements OnInit {
   size = [];
   category_pie = [];
   category_radial = [];
+  alert = false;
 
 
 
   @ViewChild('dataFile', { static: false }) inputVar: ElementRef;
+  @ViewChild('fileInput', {static: false}) myFileInput: ElementRef;
 
   constructor(
     private router: Router,
@@ -50,7 +52,12 @@ export class PieChartComponent implements OnInit {
     public apiService : ApiserviceService,
     
   ) {
-    this.chartOptions = {
+    this.pieinit()
+    this.init()
+   }
+
+   pieinit(){
+     this.chartOptions = {
       series: this.share,
       chart: {
         width: 380,
@@ -71,7 +78,6 @@ export class PieChartComponent implements OnInit {
         }
       ]
     };
-    this.init()
    }
 
    init(){
@@ -83,6 +89,12 @@ export class PieChartComponent implements OnInit {
       },
       plotOptions: {
         radialBar: {
+          hollow :{
+            imageWidth: 150,
+          },
+          track : {
+            background: '#f2f2f2',
+          },
           dataLabels: {
             name: {
               fontSize: "22px"
@@ -123,6 +135,8 @@ export class PieChartComponent implements OnInit {
               this.share.push(element.share)
             }
           });
+          // this.pieinit()
+          // this.init()
         }
       },(error) =>{
         console.log(error)
@@ -152,9 +166,14 @@ export class PieChartComponent implements OnInit {
       console.log("form val", formValues);
       this.apiService.uploadData(formValues).subscribe(
         (res) => {
-          this.router.navigate(['/Charts'])
+          // this.router.navigate(['/Charts'])
           this.getData()
-          alert("Successfully Imported")
+          this.clearSelection()
+          this.router.navigate(['/Charts'])
+          this.alert = true;
+          setTimeout(() => {
+            this.alert = false;
+          }, 3000);
         },
         (error) => {
           //console.log("this.import_file: ", this.import_file) 
@@ -163,8 +182,12 @@ export class PieChartComponent implements OnInit {
     }
   }
 
-  cancel(){
-    this.router.navigate(['/Contact-List'])
+  clearSelection(){
+      this.myFileInput.nativeElement.reset();
+  }
+
+  closeAlert(){
+    this.alert = false;
   }
 
 }
